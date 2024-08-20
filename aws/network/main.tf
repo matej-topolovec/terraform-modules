@@ -49,6 +49,27 @@ resource "aws_subnet" "private" {
   )
 }
 
+/* Extra Private Subnet */
+resource "aws_subnet" "extra_private" {
+  for_each = var.extra_private_subnets
+
+  vpc_id = aws_vpc.default.id
+
+  cidr_block = each.value.cidr_block
+
+  availability_zone = each.value.az_zone
+
+  tags = merge(
+    var.private_subnet_tags,
+    {
+      Name        = "${each.value.name}-Private-${each.value.az_zone}-subnet"
+      Description = "Private Subnet for ${each.value.name}"
+      Created-By  = "DevOps-Terraform"
+      Environment = var.deployment_env
+    }
+  )
+}
+
 /* Gateways Nat and Internet */
 resource "aws_eip" "nat" {
   count  = length(var.az_zones)
@@ -125,6 +146,28 @@ resource "aws_route_table" "private" {
   }
   depends_on = [aws_nat_gateway.default]
 }
+
+resource "aws_route_table" "extra_private" {
+  for_each = var.extra_private_subnets
+
+  vpc_id = aws_vpc.default.id
+
+  route {
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.default[index(var.az_zones, each.value.az_zone)].id
+  }
+
+
+  tags = {
+    Name        = "${each.value.name}-Private-${each.value.az_zone}-routetable"
+    Description = "Route table Target to Nat Gateway for ${each.value.name}"
+    Created-By  = "DevOps-Terraform"
+    Environment = var.deployment_env
+  }
+
+  depends_on = [aws_nat_gateway.default]
+}
+
 resource "aws_route_table" "public" {
   count  = !var.remove_all_public_route_tables_v1 ? length(var.az_zones) : 0
   vpc_id = aws_vpc.default.id
@@ -179,6 +222,19 @@ resource "aws_route_table_association" "private" {
   depends_on = [
     aws_subnet.private,
     aws_route_table.private,
+  ]
+}
+
+resource "aws_route_table_association" "extra_private" {
+  for_each = var.extra_private_subnets
+
+  subnet_id = aws_subnet.extra_private[each.key].id
+
+  route_table_id = aws_route_table.extra_private[each.key].id
+
+  depends_on = [
+    aws_subnet.extra_private,
+    aws_route_table.extra_private,
   ]
 }
 

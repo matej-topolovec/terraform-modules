@@ -70,6 +70,13 @@ variable "extra_tgw_routes" {
   description = "List of route configs, see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table#route-argument-reference"
 }
 
+variable "extra_private_subnets" {
+  type = map(map(string))
+
+  default     = {}
+  description = "Extra private subnets"
+}
+
 variable "extra_private_routes_per_az" {
   type = map(list(object({
     cidr_block                = string
