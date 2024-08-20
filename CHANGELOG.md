@@ -1,5 +1,55 @@
 # Changelog
 
+## [1.35.0](https://github.com/matej-topolovec/terraform-modules/compare/v1.34.1...v1.35.0) (2024-08-20)
+
+
+### Features
+
+* Add kafka module ([#75](https://github.com/matej-topolovec/terraform-modules/issues/75)) ([d32d99b](https://github.com/matej-topolovec/terraform-modules/commit/d32d99b8e493f0bd209d411e5bea8e6c12e92447))
+* add maximum allocated storage to rds modules ([#15](https://github.com/matej-topolovec/terraform-modules/issues/15)) ([bd11021](https://github.com/matej-topolovec/terraform-modules/commit/bd110216692f48bf5ac7c8d3d1b532094e9541ed))
+* Add message to create release ([#27](https://github.com/matej-topolovec/terraform-modules/issues/27)) ([a5a7724](https://github.com/matej-topolovec/terraform-modules/commit/a5a772459c18efd777f7ac93aadef5f18f009ccb))
+* add optional tgw routes ([#8](https://github.com/matej-topolovec/terraform-modules/issues/8)) ([af86701](https://github.com/matej-topolovec/terraform-modules/commit/af86701e563dc60d6db0768e3b546b5e17039d44))
+* Add RDS iops and throughput options ([#29](https://github.com/matej-topolovec/terraform-modules/issues/29)) ([2b6a29a](https://github.com/matej-topolovec/terraform-modules/commit/2b6a29a08729c3842dd13502fec2f1b029f0de22))
+* add secret module ([#50](https://github.com/matej-topolovec/terraform-modules/issues/50)) ([cfc6d23](https://github.com/matej-topolovec/terraform-modules/commit/cfc6d23807ca3392f291ec149e425b194d8841a9))
+* Add secrets replication on the secrets module ([#56](https://github.com/matej-topolovec/terraform-modules/issues/56)) ([5ead9b4](https://github.com/matej-topolovec/terraform-modules/commit/5ead9b4ff8d9ac7364d6bfba53aa3f01e38c5b7a))
+* Add storage encryption toggle to RDS module ([#31](https://github.com/matej-topolovec/terraform-modules/issues/31)) ([fdf58e5](https://github.com/matej-topolovec/terraform-modules/commit/fdf58e5c1b6d193597394d775dabfc7bf225ccfe))
+* Add tags variable to redis ([#11](https://github.com/matej-topolovec/terraform-modules/issues/11)) ([a7df8a1](https://github.com/matej-topolovec/terraform-modules/commit/a7df8a12f5f8b9f2f75a47f16cf1ac2f7bd8f769))
+* Adding new Variable to EC2 module ([#43](https://github.com/matej-topolovec/terraform-modules/issues/43)) ([3244891](https://github.com/matej-topolovec/terraform-modules/commit/32448919f0c9851a6dcc4d58d99f03d8dd249833))
+* Adds cert module ([#22](https://github.com/matej-topolovec/terraform-modules/issues/22)) ([6305845](https://github.com/matej-topolovec/terraform-modules/commit/630584546d2c50f238e647b6b410469788a79e79))
+* Adds conventional PR check ([0ca51dc](https://github.com/matej-topolovec/terraform-modules/commit/0ca51dcbe3ae56216467d004d97e2ceca1810b45))
+* Adds module for turbo repo remote cache deploy as lambda function ([#60](https://github.com/matej-topolovec/terraform-modules/issues/60)) ([ce5f244](https://github.com/matej-topolovec/terraform-modules/commit/ce5f2444689db3963027f7a37f46ea0905d14f97))
+* Adds release-please integration ([#12](https://github.com/matej-topolovec/terraform-modules/issues/12)) ([b63a2e3](https://github.com/matej-topolovec/terraform-modules/commit/b63a2e3660af6544ff3e92ab8d5020eaa64f3857))
+* Adds TGW support to the network module ([#33](https://github.com/matej-topolovec/terraform-modules/issues/33)) ([9751e33](https://github.com/matej-topolovec/terraform-modules/commit/9751e3352b2cfd208b13785f9a40897bdf6a370d))
+* Allows customizing VPC and subnets cidrs ([#41](https://github.com/matej-topolovec/terraform-modules/issues/41)) ([5af8c77](https://github.com/matej-topolovec/terraform-modules/commit/5af8c77420c825c8627951f22fecf1895547d98e))
+* **ci:** Add new replicate_source_db variable to enable read replica creation. ([#62](https://github.com/matej-topolovec/terraform-modules/issues/62)) ([4442c7a](https://github.com/matej-topolovec/terraform-modules/commit/4442c7a3143ed75ab9aed6c979d3282b1b0c5e57))
+* Makes perf insights configurable ([#37](https://github.com/matej-topolovec/terraform-modules/issues/37)) ([d5b896e](https://github.com/matej-topolovec/terraform-modules/commit/d5b896ecdb0fbb39c143e9a46b5800e4f68af01e))
+* Prevent tgw subnet creation if no cidr is passed ([#35](https://github.com/matej-topolovec/terraform-modules/issues/35)) ([97b77f3](https://github.com/matej-topolovec/terraform-modules/commit/97b77f3d2fc4b130deccc9d5fda97f725be05d61))
+* Turbo remote cache timeout ([#64](https://github.com/matej-topolovec/terraform-modules/issues/64)) ([dad3fd0](https://github.com/matej-topolovec/terraform-modules/commit/dad3fd058d15d2e20c80719d0db1bc815af97d05))
+
+
+### Bug Fixes
+
+* add required_provider on secret module ([#58](https://github.com/matej-topolovec/terraform-modules/issues/58)) ([871d28d](https://github.com/matej-topolovec/terraform-modules/commit/871d28d9abc8600ee6b2d0c108ed1c101ecfff73))
+* Adds missing required providers to ec2 module ([#52](https://github.com/matej-topolovec/terraform-modules/issues/52)) ([b209ab2](https://github.com/matej-topolovec/terraform-modules/commit/b209ab226e244d6b3eebdc93c4744cfcf5467b28))
+* Adds required providers to s3 module ([#68](https://github.com/matej-topolovec/terraform-modules/issues/68)) ([02daf44](https://github.com/matej-topolovec/terraform-modules/commit/02daf445072840c02dc0e31a8034cc6a6d93589f))
+* Allows customizing ec2 group description ([#71](https://github.com/matej-topolovec/terraform-modules/issues/71)) ([65a4e1a](https://github.com/matej-topolovec/terraform-modules/commit/65a4e1a23b769bf26cca1f15a5ea9bb54eae4a3f))
+* Allows redis cluster mode to be null ([6c01a1c](https://github.com/matej-topolovec/terraform-modules/commit/6c01a1ce7890a8305d51a2b2a14b4a5979c02c96))
+* cluster_mode ([b9336aa](https://github.com/matej-topolovec/terraform-modules/commit/b9336aa887f7ba423e9a9aece36fb1bba60cd26c))
+* Conditional check on release job ([#14](https://github.com/matej-topolovec/terraform-modules/issues/14)) ([0dc3412](https://github.com/matej-topolovec/terraform-modules/commit/0dc3412e832a6a8f008861a3b7db9e50ca7da5a7))
+* delete replica feature ([#69](https://github.com/matej-topolovec/terraform-modules/issues/69)) ([cdff632](https://github.com/matej-topolovec/terraform-modules/commit/cdff632a59d47de46520a07ae535331477a40040))
+* deprecate vpc variable in eip ([3bf50ea](https://github.com/matej-topolovec/terraform-modules/commit/3bf50ea96dba665b339062bc4c476b931e8fc25f))
+* **network:** Add unique values on concat lists to aboid errors ([#76](https://github.com/matej-topolovec/terraform-modules/issues/76)) ([dacb873](https://github.com/matej-topolovec/terraform-modules/commit/dacb873ba87126237293a15d1405d64a27360fe0))
+* Rds read replica ([#65](https://github.com/matej-topolovec/terraform-modules/issues/65)) ([2b830cd](https://github.com/matej-topolovec/terraform-modules/commit/2b830cd3dd8e74a9fd0c07c0100af0fc44865157))
+* rds: include enhanced monitoring role ([#7](https://github.com/matej-topolovec/terraform-modules/issues/7)) ([c8dcfae](https://github.com/matej-topolovec/terraform-modules/commit/c8dcfae2b59661fbe9552383911b6ca55740ac2b))
+* **rds:** Fix output ([29706e2](https://github.com/matej-topolovec/terraform-modules/commit/29706e2941cdbe36fcd7dd96adcb0c58e8d6e790))
+* Redis sg rule creation when sg is null ([#20](https://github.com/matej-topolovec/terraform-modules/issues/20)) ([84d3183](https://github.com/matej-topolovec/terraform-modules/commit/84d31833352ec2765f2b70a667cdfa1fea994334))
+* Release please missing files ([#73](https://github.com/matej-topolovec/terraform-modules/issues/73)) ([0970e36](https://github.com/matej-topolovec/terraform-modules/commit/0970e369e45931732db4841ef724daae72e2e54b))
+* Replace deprecated value with content in cert module ([#80](https://github.com/matej-topolovec/terraform-modules/issues/80)) ([78a9d3a](https://github.com/matej-topolovec/terraform-modules/commit/78a9d3a1f7cd6777ef8676796c86754a99ce6f08))
+* Required providers version ([#25](https://github.com/matej-topolovec/terraform-modules/issues/25)) ([ee07940](https://github.com/matej-topolovec/terraform-modules/commit/ee079405f2ca09f4554f0a28d5e3a9f959ef85b0))
+* Routes setup for code still using the other routes method ([#39](https://github.com/matej-topolovec/terraform-modules/issues/39)) ([dbf21f7](https://github.com/matej-topolovec/terraform-modules/commit/dbf21f7aafe51e157f670aec10f5e62fe98ebee0))
+* Update kms module ([#46](https://github.com/matej-topolovec/terraform-modules/issues/46)) ([7621a6b](https://github.com/matej-topolovec/terraform-modules/commit/7621a6b9f6af695b399a4a3974522b4796bb1c12))
+* Uses null defaults for iops and storage_throughput ([#47](https://github.com/matej-topolovec/terraform-modules/issues/47)) ([8e85a3b](https://github.com/matej-topolovec/terraform-modules/commit/8e85a3b2849ab45a86b53b150234e84e1d5835ed))
+
 ## [1.34.1](https://github.com/TradrAPI/terraform-modules/compare/v1.34.0...v1.34.1) (2024-08-15)
 
 
