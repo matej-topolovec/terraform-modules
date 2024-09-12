@@ -17,6 +17,7 @@ resource "aws_db_instance" "this" {
   instance_class        = var.instance_class
   engine_version        = var.engine_version
   tags                  = var.tags
+  auto_minor_version_upgrade = var.auto_minor_version_upgrade
 
   performance_insights_enabled = var.performance_insights_enabled
   username                     = var.username

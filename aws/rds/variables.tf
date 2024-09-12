@@ -163,3 +163,8 @@ variable "ca_cert_identifier" {
   type    = string
   default = "rds-ca-rsa2048-g1"
 }
+
+variable "auto_minor_version_upgrade" {
+  type    = bool
+  default = false
+}
