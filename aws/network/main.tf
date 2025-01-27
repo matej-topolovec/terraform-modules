@@ -225,18 +225,18 @@ resource "aws_route_table_association" "private" {
   ]
 }
 
-resource "aws_route_table_association" "extra_private" {
-  count = !var.remove_all_private_route_tables_v1 ? length(var.az_zones) : 0
-
-  subnet_id = aws_subnet.extra_private[each.key].id
-
-  route_table_id = aws_route_table.extra_private[each.key].id
-
-  depends_on = [
-    aws_subnet.extra_private,
-    aws_route_table.extra_private,
-  ]
-}
+#resource "aws_route_table_association" "extra_private" {
+#  count = !var.remove_all_private_route_tables_v1 ? length(var.az_zones) : 0
+#
+#  subnet_id = aws_subnet.extra_private[each.key].id
+#
+#  route_table_id = aws_route_table.extra_private[each.key].id
+#
+#  depends_on = [
+#    aws_subnet.extra_private,
+#    aws_route_table.extra_private,
+#  ]
+#}
 
 resource "aws_route_table_association" "public" {
   count  = !var.remove_all_public_route_tables_v1 ? length(var.az_zones) : 0
