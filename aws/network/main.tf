@@ -209,7 +209,7 @@ resource "aws_route_table" "public" {
 }
 /* Subnets Assciation for Public and Private */
 resource "aws_route_table_association" "private" {
-  count = length(var.az_zones)
+  count = !var.remove_all_private_route_tables_v1 ? length(var.az_zones) : 0
 
   subnet_id = aws_subnet.private[count.index].id
 
@@ -226,7 +226,7 @@ resource "aws_route_table_association" "private" {
 }
 
 resource "aws_route_table_association" "extra_private" {
-  for_each = var.extra_private_subnets
+  count = !var.remove_all_private_route_tables_v1 ? length(var.az_zones) : 0
 
   subnet_id = aws_subnet.extra_private[each.key].id
 
@@ -239,7 +239,7 @@ resource "aws_route_table_association" "extra_private" {
 }
 
 resource "aws_route_table_association" "public" {
-  count = length(var.az_zones)
+  count  = !var.remove_all_public_route_tables_v1 ? length(var.az_zones) : 0
 
   subnet_id = aws_subnet.public[count.index].id
 
