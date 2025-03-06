@@ -158,10 +158,7 @@ resource "aws_route_table" "extra_private" {
   }
 
   dynamic "route" {
-    for_each = concat(
-      var.extra_tgw_routes,
-      try(var.extra_tgw_routes_per_az[var.az_zones[count.index]], [])
-    )
+    for_each = var.extra_tgw_routes
 
     content {
       cidr_block         = route.value["cidr_block"]
