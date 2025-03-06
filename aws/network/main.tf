@@ -157,6 +157,17 @@ resource "aws_route_table" "extra_private" {
     nat_gateway_id = aws_nat_gateway.default[index(var.az_zones, each.value.az_zone)].id
   }
 
+  dynamic "route" {
+    for_each = concat(
+      var.extra_tgw_routes,
+      try(var.extra_tgw_routes_per_az[var.az_zones[count.index]], [])
+    )
+
+    content {
+      cidr_block         = route.value["cidr_block"]
+      transit_gateway_id = route.value["transit_gateway_id"]
+    }
+  }
 
   tags = {
     Name        = "${each.value.name}-Private-${each.value.az_zone}-routetable"
