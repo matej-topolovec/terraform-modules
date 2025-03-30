@@ -8,6 +8,7 @@ resource "aws_route_table" "private_v2" {
     Description = "Route table Target to Nat Gateway for ${var.name}"
     Created-By  = "DevOps-Terraform"
     Environment = var.deployment_env
+    team        = "devops"
   }
 
   depends_on = [aws_nat_gateway.default]
@@ -39,6 +40,7 @@ resource "aws_route_table" "public_v2" {
     Description = "Route table Target to Internet Gateway for ${var.name}"
     Created-By  = "DevOps-Terraform"
     Environment = var.deployment_env
+    team        = "devops"
   }
 
   depends_on = [aws_internet_gateway.default]

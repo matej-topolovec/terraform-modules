@@ -8,6 +8,7 @@ resource "aws_vpc" "default" {
   tags = {
     Name        = "${var.name}-vpc"
     Description = "VPC for ${var.name}"
+    team        = "devops"
   }
 }
 
@@ -26,6 +27,7 @@ resource "aws_subnet" "public" {
       Description = "Public Subnet for ${var.name}"
       Created-By  = "DevOps-Terraform"
       Environment = var.deployment_env
+      team        = "devops"
     }
   )
 }
@@ -45,6 +47,7 @@ resource "aws_subnet" "private" {
       Description = "Private Subnet for ${var.name}"
       Created-By  = "DevOps-Terraform"
       Environment = var.deployment_env
+      team        = "devops"
     }
   )
 }
@@ -66,6 +69,7 @@ resource "aws_subnet" "extra_private" {
       Description = "Private Subnet for ${each.value.name}"
       Created-By  = "DevOps-Terraform"
       Environment = var.deployment_env
+      team        = "devops"
     }
   )
 }
@@ -79,6 +83,7 @@ resource "aws_eip" "nat" {
     Description = "Internet Gateway for NAT Gateway"
     Created-By  = "DevOps-Terraform"
     Environment = var.deployment_env
+    team        = "devops"
   }
 }
 resource "aws_nat_gateway" "default" {
@@ -91,6 +96,7 @@ resource "aws_nat_gateway" "default" {
     Name        = "${var.name}-${var.az_zones[count.index]}-natgw"
     Created-By  = "DevOps-Terraform"
     Environment = var.deployment_env
+    team        = "devops"
   }
 }
 resource "aws_internet_gateway" "default" {
@@ -100,6 +106,7 @@ resource "aws_internet_gateway" "default" {
     Description = "Internet Gateway for Public Subnets for ${var.name}"
     Created-By  = "DevOps-Terraform"
     Environment = var.deployment_env
+    team        = "devops"
   }
 }
 /* route tables */
@@ -143,6 +150,7 @@ resource "aws_route_table" "private" {
     Description = "Route table Target to Nat Gateway for ${var.name}"
     Created-By  = "DevOps-Terraform"
     Environment = var.deployment_env
+    team        = "devops"
   }
   depends_on = [aws_nat_gateway.default]
 }
@@ -171,6 +179,7 @@ resource "aws_route_table" "extra_private" {
     Description = "Route table Target to Nat Gateway for ${each.value.name}"
     Created-By  = "DevOps-Terraform"
     Environment = var.deployment_env
+    team        = "devops"
   }
 
   depends_on = [aws_nat_gateway.default]
@@ -212,6 +221,7 @@ resource "aws_route_table" "public" {
     Description = "Route table Target to Internet Gateway for ${var.name}"
     Created-By  = "DevOps-Terraform"
     Environment = var.deployment_env
+    team        = "devops"
   }
   depends_on = [aws_internet_gateway.default]
 }
