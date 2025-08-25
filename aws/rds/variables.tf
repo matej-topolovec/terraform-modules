@@ -119,6 +119,11 @@ variable "enabled_cloudwatch_logs_exports" {
   default = []
 }
 
+variable "additional_security_group_ids" {
+  type    = list(string)
+  default = []
+}
+
 # See https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance#managed-master-passwords-via-secrets-manager-default-kms-key
 variable "manage_master_user_password" {
   type    = bool
