@@ -11,12 +11,12 @@ resource "aws_db_subnet_group" "this" {
   subnet_ids  = var.vpc.subnets
 }
 resource "aws_db_instance" "this" {
-  identifier            = local.db_identifier
-  db_name               = local.db_name
-  allocated_storage     = var.allocated_storage
-  instance_class        = var.instance_class
-  engine_version        = var.engine_version
-  tags                  = var.tags
+  identifier                 = local.db_identifier
+  db_name                    = local.db_name
+  allocated_storage          = var.allocated_storage
+  instance_class             = var.instance_class
+  engine_version             = var.engine_version
+  tags                       = var.tags
   auto_minor_version_upgrade = var.auto_minor_version_upgrade
 
   performance_insights_enabled = var.performance_insights_enabled
@@ -52,9 +52,7 @@ resource "aws_db_instance" "this" {
 
   max_allocated_storage = var.max_allocated_storage
 
-  vpc_security_group_ids = [
-    aws_security_group.this.id
-  ]
+  vpc_security_group_ids = concat(var.additional_security_group_ids, [aws_security_group.this.id])
 
   ca_cert_identifier = var.ca_cert_identifier
 

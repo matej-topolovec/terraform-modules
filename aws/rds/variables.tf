@@ -29,6 +29,11 @@ variable "vpc" {
   })
 }
 
+variable "additional_security_group_ids" {
+  type    = list(string)
+  default = []
+}
+
 variable "allocated_storage" {
   description = "Allocated DB storage in GiB."
   type        = number
@@ -135,7 +140,7 @@ variable "create_monitoring_role" {
 }
 
 variable "max_allocated_storage" {
-  type    = number
+  type     = number
   nullable = false
 }
 
