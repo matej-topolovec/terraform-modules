@@ -61,9 +61,7 @@ resource "aws_db_instance" "this" {
 
   replicate_source_db = var.replicate_source_db
 
-  vpc_security_group_ids = [
-    aws_security_group.this.id
-  ]
+  vpc_security_group_ids = concat(var.additional_security_group_ids, [aws_security_group.this.id])
 
   ca_cert_identifier = var.ca_cert_identifier
 
