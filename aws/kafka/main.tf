@@ -5,12 +5,12 @@ locals {
   ))
 
   _server_properties_good_defaults = [
-    "num.partitions=${3 * local.var.msk.number_of_broker_nodes}",
+    "num.partitions=${coalesce(var.default_num_partitions, 3 * var.number_of_broker_nodes)}",
     "log.retention.hours=168",
   ]
 
   _server_properties_without_locally_provided = [
-    for property in split("\n", local.var.msk.server_properties) :
+    for property in split("\n", var.server_properties) :
     property
     if(
       property != ""
@@ -20,11 +20,8 @@ locals {
   ]
 }
 
-
-
-
 resource "aws_msk_configuration" "this" {
-  kafka_versions = [var.msk.kafka_version]
+  kafka_versions = [var.kafka_version]
 
   name = "${var.platform}-${var.environment}-${replace(var.kafka_version, ".", "")}"
 
@@ -35,13 +32,10 @@ resource "aws_msk_configuration" "this" {
   }
 }
 
-
 resource "aws_cloudwatch_log_group" "msk" {
   name              = "${terraform.workspace}/msk"
   retention_in_days = 7
 }
-
-
 
 resource "aws_msk_cluster" "this" {
   cluster_name  = var.cluster_name
@@ -66,7 +60,7 @@ resource "aws_msk_cluster" "this" {
       }
     }
 
-    security_groups = var.security_groups
+    security_groups = [aws_security_group.msk.id]
   }
 
   client_authentication {
@@ -105,10 +99,15 @@ resource "aws_msk_cluster" "this" {
 }
 
 resource "aws_security_group" "msk" {
-  name        = "${var.platform}-${var.cluster_name}-${var.environment}-msk"
+  name        = var.cluster_name
   description = "MSK security group"
   vpc_id      = var.vpc_id
 
+  lifecycle {
+    ignore_changes = [
+      description
+    ]
+  }
 }
 
 

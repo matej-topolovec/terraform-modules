@@ -9,6 +9,16 @@ variable "name" {
   description = "name of vpc"
 }
 
+variable "name_overrides" {
+  type = object({
+    flowlogs_policy = optional(string)
+    flowlogs_role   = optional(string)
+  })
+
+  description = "name overrides for resources"
+  default     = {}
+}
+
 variable "vpc_sub" {
   type        = string
   default     = "10.0"
@@ -139,4 +149,9 @@ variable "private_subnets_cidrs" {
 variable "tgw_subnets_cidrs" {
   type    = list(string)
   default = []
+}
+
+variable "flowlogs" {
+  type    = bool
+  default = false
 }

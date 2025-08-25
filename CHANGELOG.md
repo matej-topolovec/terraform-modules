@@ -1,5 +1,235 @@
 # Changelog
 
+## [4.3.0](https://github.com/TradrAPI/terraform-modules/compare/v4.2.0...v4.3.0) (2025-07-03)
+
+
+### Features
+
+* **cloudflare/dns:** Adds dns module ([#139](https://github.com/TradrAPI/terraform-modules/issues/139)) ([0736226](https://github.com/TradrAPI/terraform-modules/commit/0736226f5d621d4d90a928847d1e1420ef57b7f6))
+
+## [4.2.0](https://github.com/TradrAPI/terraform-modules/compare/v4.1.0...v4.2.0) (2025-06-26)
+
+
+### Features
+
+* **trade-infra:** Netrios features to tradrapi ([#137](https://github.com/TradrAPI/terraform-modules/issues/137)) ([1153d1c](https://github.com/TradrAPI/terraform-modules/commit/1153d1c3ea89f6efffaee1e8a6cc5fb57022cb9f))
+
+## [4.1.0](https://github.com/TradrAPI/terraform-modules/compare/v4.0.1...v4.1.0) (2025-05-20)
+
+
+### Features
+
+* **kafka:** Split kafka module resources into separate modules  ([#135](https://github.com/TradrAPI/terraform-modules/issues/135)) ([bbbf9b8](https://github.com/TradrAPI/terraform-modules/commit/bbbf9b85349cc6b550aeec0df084ec306134f547))
+
+## [4.0.1](https://github.com/TradrAPI/terraform-modules/compare/v4.0.0...v4.0.1) (2025-05-01)
+
+
+### Bug Fixes
+
+* **kafka_plugins:** Handles empty alias cases ([cd66156](https://github.com/TradrAPI/terraform-modules/commit/cd661564dbae3757e83eedb416d98cfdf1e7c4ff))
+
+## [4.0.0](https://github.com/TradrAPI/terraform-modules/compare/v3.4.0...v4.0.0) (2025-05-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* **kafka:** Rremove kafka backup from the base module ([#130](https://github.com/TradrAPI/terraform-modules/issues/130))
+
+### Features
+
+* **kafka:** Rremove kafka backup from the base module ([#130](https://github.com/TradrAPI/terraform-modules/issues/130)) ([1f27b7a](https://github.com/TradrAPI/terraform-modules/commit/1f27b7a2a04c262ecbb48eb4b64fb2a8c6017daf))
+
+## [3.4.0](https://github.com/TradrAPI/terraform-modules/compare/v3.3.1...v3.4.0) (2025-05-01)
+
+
+### Features
+
+* **kafka:** Split backup from main module ([b9dc0b3](https://github.com/TradrAPI/terraform-modules/commit/b9dc0b3f3ff468cc0dff1faee2003809cabf502e))
+
+
+### Refactor
+
+* **kafka:** Moves backup code to dedicated module ([#128](https://github.com/TradrAPI/terraform-modules/issues/128)) ([c46510d](https://github.com/TradrAPI/terraform-modules/commit/c46510d264c0f65fa50f32c463267f726d6493ff))
+
+## [3.3.1](https://github.com/TradrAPI/terraform-modules/compare/v3.3.0...v3.3.1) (2025-05-01)
+
+
+### Bug Fixes
+
+* **kafka,kafka_plugins,s3:** Warnings over s3 bucket deprecations ([15e65a7](https://github.com/TradrAPI/terraform-modules/commit/15e65a7e00a0710c960f8a1a1edf82db61443fb1))
+
+## [3.3.0](https://github.com/TradrAPI/terraform-modules/compare/v3.2.2...v3.3.0) (2025-05-01)
+
+
+### Features
+
+* **core:** Update list of changelog sections triggering a release PR ([95ba3ea](https://github.com/TradrAPI/terraform-modules/commit/95ba3eae67aa5688554875c47eeea97a8eccdfef))
+
+
+### Refactor
+
+* **kafka:** Split plugins setup to a separate module ([#125](https://github.com/TradrAPI/terraform-modules/issues/125)) ([062dfdf](https://github.com/TradrAPI/terraform-modules/commit/062dfdff3381463d016db115d399ab987f00db0d))
+
+## [3.2.2](https://github.com/TradrAPI/terraform-modules/compare/v3.2.1...v3.2.2) (2025-03-14)
+
+
+### Bug Fixes
+
+* **mongodbatlas/user:** Password resolution logic ([#123](https://github.com/TradrAPI/terraform-modules/issues/123)) ([5ab2ac1](https://github.com/TradrAPI/terraform-modules/commit/5ab2ac1ddf43d25438991e58cbe248c256cee1e0))
+
+## [3.2.1](https://github.com/TradrAPI/terraform-modules/compare/v3.2.0...v3.2.1) (2025-02-24)
+
+
+### Bug Fixes
+
+* **turbo_repo_remote_cache:** Misssing npm run build ([bb81a71](https://github.com/TradrAPI/terraform-modules/commit/bb81a71598be1adc06fa8eb4ce8eca18a78ac428))
+
+## [3.2.0](https://github.com/TradrAPI/terraform-modules/compare/v3.1.0...v3.2.0) (2025-02-24)
+
+
+### Features
+
+* **turbo_repo_remote_cache:** Upgrade the turbo-remote-cache version ([#120](https://github.com/TradrAPI/terraform-modules/issues/120)) ([dc723a0](https://github.com/TradrAPI/terraform-modules/commit/dc723a069455eb23dbaba4f636a32d59e7be6299))
+
+## [3.1.0](https://github.com/TradrAPI/terraform-modules/compare/v3.0.0...v3.1.0) (2025-02-04)
+
+
+### Features
+
+* **network:** Allows overriding flowlog role and policy names ([#118](https://github.com/TradrAPI/terraform-modules/issues/118)) ([f4145c3](https://github.com/TradrAPI/terraform-modules/commit/f4145c3ee1e1125a64283b9ce6a36aa24e7ef6a9))
+
+## [3.0.0](https://github.com/TradrAPI/terraform-modules/compare/v2.1.2...v3.0.0) (2025-02-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* **network:** Turns v2 routes the default ([#116](https://github.com/TradrAPI/terraform-modules/issues/116))
+
+### Features
+
+* **network:** Turns v2 routes the default ([#116](https://github.com/TradrAPI/terraform-modules/issues/116)) ([ede1b3b](https://github.com/TradrAPI/terraform-modules/commit/ede1b3b7d8c9575eb5e195b422334aec59b96739))
+
+## [2.1.2](https://github.com/TradrAPI/terraform-modules/compare/v2.1.1...v2.1.2) (2025-02-03)
+
+
+### Bug Fixes
+
+* **aws:** Add retention to vpc flowlogs ([#114](https://github.com/TradrAPI/terraform-modules/issues/114)) ([612eb3a](https://github.com/TradrAPI/terraform-modules/commit/612eb3aad2f9a093e4a0bae4565dde1a0e52b484))
+
+## [2.1.1](https://github.com/TradrAPI/terraform-modules/compare/v2.1.0...v2.1.1) (2025-01-27)
+
+
+### Bug Fixes
+
+* **aws:** Add vpc network flowlogs ([#112](https://github.com/TradrAPI/terraform-modules/issues/112)) ([3f67498](https://github.com/TradrAPI/terraform-modules/commit/3f6749874f7d8292d227263db0957dbeb63cc089))
+
+## [2.1.0](https://github.com/TradrAPI/terraform-modules/compare/v2.0.0...v2.1.0) (2025-01-23)
+
+
+### Features
+
+* Added std-ec2 tf module codes ([#110](https://github.com/TradrAPI/terraform-modules/issues/110)) ([e866739](https://github.com/TradrAPI/terraform-modules/commit/e8667394cbc4f0713f40f98f0159a9920f351ed3))
+
+## [2.0.0](https://github.com/TradrAPI/terraform-modules/compare/v1.41.2...v2.0.0) (2025-01-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* **redis:** Updated redis module ([#107](https://github.com/TradrAPI/terraform-modules/issues/107))
+
+### Features
+
+* **redis:** Updated redis module ([#107](https://github.com/TradrAPI/terraform-modules/issues/107)) ([7a3d98d](https://github.com/TradrAPI/terraform-modules/commit/7a3d98d71470c4779e9b05e1a5d838b0c67198fb))
+
+## [1.41.2](https://github.com/TradrAPI/terraform-modules/compare/v1.41.1...v1.41.2) (2025-01-15)
+
+
+### Bug Fixes
+
+* **redis:** Updated module ([#105](https://github.com/TradrAPI/terraform-modules/issues/105)) ([05a564d](https://github.com/TradrAPI/terraform-modules/commit/05a564db5113041744b3c07aeab72292ce61f86a))
+
+## [1.41.1](https://github.com/TradrAPI/terraform-modules/compare/v1.41.0...v1.41.1) (2025-01-07)
+
+
+### Bug Fixes
+
+* **turbo_remote_cache:** Adds missing parameters ([f5401be](https://github.com/TradrAPI/terraform-modules/commit/f5401be5e6e68ab18f0afaf1931d75c90d1752ac))
+
+## [1.41.0](https://github.com/TradrAPI/terraform-modules/compare/v1.40.0...v1.41.0) (2024-12-26)
+
+
+### Features
+
+* **kafka:** Deletes backed up messages after 14days ([#102](https://github.com/TradrAPI/terraform-modules/issues/102)) ([4c684c2](https://github.com/TradrAPI/terraform-modules/commit/4c684c2f40d5885ee36ffc8ce947da5ed32b31be))
+
+## [1.40.0](https://github.com/TradrAPI/terraform-modules/compare/v1.39.0...v1.40.0) (2024-12-26)
+
+
+### Features
+
+* **kafka:** Allows configuring partitions size ([#100](https://github.com/TradrAPI/terraform-modules/issues/100)) ([b1e66ca](https://github.com/TradrAPI/terraform-modules/commit/b1e66ca3fd63408716814a4d1d7eb0b8cea7db9b))
+
+## [1.39.0](https://github.com/TradrAPI/terraform-modules/compare/v1.38.0...v1.39.0) (2024-12-09)
+
+
+### Features
+
+* **kafka:** Add amazon-s3-sing-connector-url ([#98](https://github.com/TradrAPI/terraform-modules/issues/98)) ([0a85ca8](https://github.com/TradrAPI/terraform-modules/commit/0a85ca8589dbbb5ff1142c7e4db0404de7c1802d))
+
+## [1.38.0](https://github.com/TradrAPI/terraform-modules/compare/v1.37.0...v1.38.0) (2024-11-15)
+
+
+### Features
+
+* **ec2:** Add name to ec2 outputs ([131e3c8](https://github.com/TradrAPI/terraform-modules/commit/131e3c87f0ad66d63f460f80b48a7018ee9054bc))
+
+## [1.37.0](https://github.com/TradrAPI/terraform-modules/compare/v1.36.0...v1.37.0) (2024-11-12)
+
+
+### Features
+
+* **ebs:** Add defaults ebs to ec2 module ([#95](https://github.com/TradrAPI/terraform-modules/issues/95)) ([b98b313](https://github.com/TradrAPI/terraform-modules/commit/b98b3131035a5f8a6afa0d14d4c859c89cc90d55))
+
+## [1.36.0](https://github.com/TradrAPI/terraform-modules/compare/v1.35.0...v1.36.0) (2024-10-21)
+
+
+### Features
+
+* **ec2:** Adding IOPS option for ebs ([#94](https://github.com/TradrAPI/terraform-modules/issues/94)) ([c06c66e](https://github.com/TradrAPI/terraform-modules/commit/c06c66e65949cf7aa2a904b991401436380b3a6c))
+
+
+### Bug Fixes
+
+* **ec2:** Setting iops variable to default null ([#92](https://github.com/TradrAPI/terraform-modules/issues/92)) ([4c8c9f7](https://github.com/TradrAPI/terraform-modules/commit/4c8c9f7a3ae0597dd12bf4c724d916bacde3052d))
+
+## [1.35.0](https://github.com/TradrAPI/terraform-modules/compare/v1.34.4...v1.35.0) (2024-10-17)
+
+
+### Features
+
+* **ec2:** Adds iops options to ec2 ([#90](https://github.com/TradrAPI/terraform-modules/issues/90)) ([4c4c614](https://github.com/TradrAPI/terraform-modules/commit/4c4c614d51629d8937266c2958f59c3bf26ae6a6))
+
+## [1.34.4](https://github.com/TradrAPI/terraform-modules/compare/v1.34.3...v1.34.4) (2024-09-10)
+
+
+### Bug Fixes
+
+* Random password module ([#86](https://github.com/TradrAPI/terraform-modules/issues/86)) ([4947dc7](https://github.com/TradrAPI/terraform-modules/commit/4947dc7cefbcc1d2831b32e4705ac2e8cc99cf50))
+
+## [1.34.3](https://github.com/TradrAPI/terraform-modules/compare/v1.34.2...v1.34.3) (2024-09-09)
+
+
+### Bug Fixes
+
+* **mongodb:** Resolve undetermined count issue in random_password ([#84](https://github.com/TradrAPI/terraform-modules/issues/84)) ([d6a4688](https://github.com/TradrAPI/terraform-modules/commit/d6a468860d42353232b9264793a1db81d8cb5b66))
+
+## [1.34.2](https://github.com/TradrAPI/terraform-modules/compare/v1.34.1...v1.34.2) (2024-09-09)
+
+
+### Bug Fixes
+
+* **mongodb:** Resolve undetermined count issue in random_password resource ([#82](https://github.com/TradrAPI/terraform-modules/issues/82)) ([e3c582f](https://github.com/TradrAPI/terraform-modules/commit/e3c582fcbe308ed93b0c58cf066f4e51225fd950))
+
 ## [1.34.1](https://github.com/TradrAPI/terraform-modules/compare/v1.34.0...v1.34.1) (2024-08-15)
 
 

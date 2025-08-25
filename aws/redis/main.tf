@@ -29,7 +29,7 @@ resource "aws_security_group" "redis" {
 }
 
 resource "aws_elasticache_replication_group" "redis" {
-  automatic_failover_enabled  = true
+  automatic_failover_enabled  = var.automatic_failover_enabled
   preferred_cache_cluster_azs = local.az_zones
   replication_group_id        = var.name
   description                 = "redis cluster for ${var.platform}"
@@ -41,6 +41,7 @@ resource "aws_elasticache_replication_group" "redis" {
   engine_version              = var.engine_version
   engine                      = "redis"
   multi_az_enabled            = var.multi_az_enabled
+  apply_immediately           = true
   tags                        = var.tags
 
   parameter_group_name = (
@@ -69,7 +70,7 @@ resource "aws_elasticache_replication_group" "redis" {
 }
 
 resource "aws_elasticache_cluster" "redis" {
-  count = var.cluster_mode == null ? 1 : 0
+  count = var.cluster_mode == null ? 0 : 1
 
   cluster_id           = lower("${var.name}-cache")
   replication_group_id = aws_elasticache_replication_group.redis.id
@@ -118,3 +119,4 @@ locals {
     : []
   )
 }
+

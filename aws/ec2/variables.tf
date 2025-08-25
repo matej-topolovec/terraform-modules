@@ -22,10 +22,11 @@ variable "key_pair" {
 variable "ebs" {
   type = object({
     size        = number
-    device_name = string
-    az          = string
-    type        = string
-    tags        = map(string)
+    device_name = optional(string, "xvdf")
+    az          = optional(string)
+    type        = optional(string)
+    iops        = optional(string)
+    tagName     = optional(string)
   })
 
   default = null
@@ -119,7 +120,12 @@ variable "root_volume_size" {
 
 variable "root_volume_type" {
   type    = string
-  default = "gp2"
+  default = "gp3"
+}
+
+variable "iops" {
+  type    = number
+  default = null
 }
 
 variable "security_group_ids" {
