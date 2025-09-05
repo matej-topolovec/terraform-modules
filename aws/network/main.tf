@@ -174,6 +174,15 @@ resource "aws_route_table" "extra_private" {
     }
   }
 
+  dynamic "route" {
+    for_each = var.vpc_peering_connections
+
+    content {
+      cidr_block                = route.value.cidr_block
+      vpc_peering_connection_id = route.value.connection_id
+    }
+  }
+
   tags = {
     Name        = "${each.value.name}-Private-${each.value.az_zone}-routetable"
     Description = "Route table Target to Nat Gateway for ${each.value.name}"
@@ -257,7 +266,7 @@ resource "aws_route_table_association" "private" {
 #}
 
 resource "aws_route_table_association" "public" {
-  count  = !var.remove_all_public_route_tables_v1 ? length(var.az_zones) : 0
+  count = !var.remove_all_public_route_tables_v1 ? length(var.az_zones) : 0
 
   subnet_id = aws_subnet.public[count.index].id
 

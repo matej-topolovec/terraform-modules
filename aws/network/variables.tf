@@ -36,6 +36,16 @@ variable "deployment_env" {
   description = "Environment where the VPC resides"
 }
 
+variable "vpc_peering_connections" {
+  type = list(object({
+    cidr_block    = string
+    connection_id = string
+  }))
+
+  default     = []
+  description = "Peering connection to be added to route tables"
+}
+
 # Only vpc peering supported for now
 variable "extra_public_routes" {
   type = list(object({
