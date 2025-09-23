@@ -76,10 +76,10 @@ resource "aws_subnet" "extra_private" {
 
 /* Gateways Nat and Internet */
 resource "aws_eip" "nat" {
-  count  = length(var.az_zones)
+  count  = length(var.az_zones_ngw)
   domain = "vpc"
   tags = {
-    Name        = "${var.name}-${var.az_zones[count.index]}-eip"
+    Name        = "${var.name}-${var.az_zones_ngw[count.index]}-eip"
     Description = "Internet Gateway for NAT Gateway"
     Created-By  = "DevOps-Terraform"
     Environment = var.deployment_env
@@ -87,7 +87,7 @@ resource "aws_eip" "nat" {
   }
 }
 resource "aws_nat_gateway" "default" {
-  count         = length(var.az_zones)
+  count         = length(var.az_zones_ngw)
   allocation_id = element(aws_eip.nat.*.id, count.index)
   subnet_id     = element(aws_subnet.public.*.id, count.index)
   depends_on    = [aws_subnet.public]

@@ -31,6 +31,12 @@ variable "az_zones" {
   default     = ["us-west-1a", "us-west-1b"]
 }
 
+variable "az_zones_ngw" {
+  type        = list(string)
+  description = "List of available Zones for NGW"
+  default     = ["us-west-1a", "us-west-1b"]
+}
+
 variable "deployment_env" {
   type        = string
   description = "Environment where the VPC resides"
